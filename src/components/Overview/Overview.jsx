@@ -3,12 +3,12 @@ import styles from './Overview.module.scss';
 import OverviewFailScreen from './OverviewFailScreen';
 
 
-function Overview({cards, changeCards, isFail}) {
+function Overview({cards, changeCards}) {
 
   return (
     <div className={styles.overviewContainer}>
       <div className={styles.gameContainer}>
-      <OverviewFailScreen isFail={isFail} />
+      {/* <OverviewFailScreen isFail={isFail} /> */}
       
         <div className={styles.cardContainer}>
           <img src={cards[0].src} alt={cards[0].alt} className = {styles.card} onClick={changeCards} />

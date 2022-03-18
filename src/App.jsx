@@ -33,6 +33,10 @@ function App() {
 
   const [isFail, setIsFail] = useState(false)
 
+  useEffect(() =>{
+    shuffle(cards)
+  }, [cards])
+
   function shuffle(array) {
     let currentIndex = array.length,  randomIndex;
     while (currentIndex !== 0) {
@@ -49,12 +53,16 @@ function App() {
     const alt = e.target.alt
     const card = cards.find(card => card.alt === alt)
     if (card.isClicked === false) {
-      card.isClicked = true
-      const updatedCards = [...cards, card]
+      const updatedCards = cards.map(card => {
+        if (card.alt === alt) {
+          card.isClicked=true
+        }
+        return card;
+      })
       updateScore()
       setCards(updatedCards)
     } else if (card.isClicked === true) {
-      confirmFail(e, cardImg)
+      confirmFail(cardImg)
     }
     
   }
@@ -67,12 +75,6 @@ function App() {
     cardImg.classList.add('fail')
     setIsFail(true)
   }
-
-
-
-  useEffect(() =>{
-    shuffle(cards)
-  }, [cards])
 
   return (
     <div>
