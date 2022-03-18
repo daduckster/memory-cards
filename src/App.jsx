@@ -34,6 +34,7 @@ function App() {
   const [isFail, setIsFail] = useState(false)
 
   useEffect(() =>{
+    console.log('hi')
     shuffle(cards)
   }, [cards])
 
