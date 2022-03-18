@@ -49,7 +49,7 @@ function Overview({cards, changeCards, isFail}) {
       </div>
 
       <div className={styles.explanationContainer}>
-        <p>*explaining the game rules*</p>
+        <p>Get points by clicking on an image but don't click on any picture more than once!</p>
       </div>
     </div>
   )
